@@ -76,6 +76,7 @@ After the compilation, you should see something like this:
 >>> Kernel(s) PEBKERNEL built in 337 seconds, ncpu: 12, make -j12
 --------------------------------------------------------------
 ```
+Compiled kernel will be in the same folder as the toolchain (eg. /tmp/obj/home/user/peb/amd64.amd64/sys/PEBKERNEL)
 
 ## Compiling on FreeBSD
 
