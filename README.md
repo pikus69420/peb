@@ -3,9 +3,16 @@
 Fork of FreeBSD 16 kernel
 
 **Key differences**
+
 - **x64 kernel:** built-in `amdgpu` support
 - **x32 kernel:** built-in `tdfx` and `tdfxdrm` support for Voodoo cards
 - **both kernels:** pre-enabled IPSEC
+
+
+
+# How to use
+
+Because there's a lot of work to do for putting the whole toolchain to the repo, you need to use the official FreeBSD source tree and replace the `sys` folder with the one from here.
 
 # System requirements
 
@@ -17,7 +24,14 @@ Fork of FreeBSD 16 kernel
 
 ## Compiling on Linux
 
-Install the prerequisites:
+Download the FreeBSD source code (assuming you have `git` installed, if not, install it):
+
+```shell
+git clone https://git.FreeBSD.org/src.git
+cd src
+```
+
+Then install the prerequisites:
 
 **Fedora/RHEL/CentOS based (bzip requires CRB repo enabled on RHEL/CentOS)**
 
@@ -35,6 +49,13 @@ sudo apt install git python3 build-essential libarchive-dev libbz2-dev liblzma-d
 
 ```shell
 sudo pacman -Syu git python libarchive bzip2 xz clang lld
+```
+
+Delete the original sys folder and paste the one from this repo (replace /path/to/peb/sys with your actual path):
+
+```shell
+rm -rf sys
+cp -r /path/to/peb/sys ./sys
 ```
 
 Then compile the toolchain:
@@ -76,6 +97,7 @@ After the compilation, you should see something like this:
 >>> Kernel(s) PEBKERNEL built in XXXX seconds, ncpu: X, make -jX
 --------------------------------------------------------------
 ```
+
 Compiled kernel will be in the same folder as the toolchain (eg. /tmp/obj/home/user/peb/amd64.amd64/sys/PEBKERNEL)
 
 ## Compiling on FreeBSD
