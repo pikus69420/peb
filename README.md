@@ -11,19 +11,19 @@ Install the prerequisites:
 **Fedora/RHEL/CentOS based (bzip requires CRB repo enabled on RHEL/CentOS)**
 
 ```shell
-sudo dnf install git python3 gcc gcc-c++ libarchive-devel bzip2 xz
+sudo dnf install git python3 gcc gcc-c++ libarchive-devel bzip2 xz clang lld
 ```
 
 **Ubuntu/Debian based**
 
 ```shell
-sudo apt install git python3 build-essential libarchive-dev libbz2-dev liblzma-dev
+sudo apt install git python3 build-essential libarchive-dev libbz2-dev liblzma-dev clang lld
 ```
 
 **Arch based**
 
 ```shell
-sudo pacman -Syu git python gcc libarchive bzip2 xz
+sudo pacman -Syu git python gcc libarchive bzip2 xz clang lld
 ```
 
 Then compile the toolchain:
