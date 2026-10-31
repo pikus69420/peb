@@ -51,13 +51,7 @@ MAKEOBJDIRPREFIX=/tmp/obj python3 tools/build/make.py -j4 kernel-toolchain TARGE
 
 A successful toolchain compilation will return:
 
-```
---------------------------------------------------------------
->>> Kernel toolchain for amd64 completed on Fri Oct 30 21:30:15 CET 2026
---------------------------------------------------------------
->>> Kernel toolchain built in 1342 seconds, ncpu: 4, make -j4
---------------------------------------------------------------
-```
+
 
 You can change amd64 for i386 too.
 
@@ -67,7 +61,7 @@ And then compile the kernel (if you copied the compiled toolchain from /tmp/obj,
 MAKEOBJDIRPREFIX=/tmp/obj python3 tools/build/make.py -j$(nproc) buildkernel KERNCONF=PEBKERNEL TARGET=amd64 TARGET_ARCH=amd64 --cross-bindir=/usr/bin --bootstrap-toolchain
 ```
 
-After the compilation, you should see something like this:
+After the compilation, you should see something like this or just return to the command prompt without any errors:
 
 ```
 --------------------------------------------------------------
