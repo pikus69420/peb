@@ -2,10 +2,18 @@
 
 Fork of FreeBSD 16 kernel
 
-**Key differences**\
-x64 kernel: built-in amdgpu support\
-x32 kernel: built in tdfx and tdfxdrm support for Voodoo cards\
-both kernels: pre-enabled IPSEC
+**Key differences**
+- **x64 kernel:** built-in `amdgpu` support
+- **x32 kernel:** built-in `tdfx` and `tdfxdrm` support for Voodoo cards
+- **both kernels:** pre-enabled IPSEC
+
+# System requirements
+
+- Linux (Fedora, Arch, Debian, Red Hat, Manjaro etc.) or FreeBSD
+- 8GB RAM (at least)
+- 16GB RAM (recommended)
+- `clang` and `lld`
+- `python3` and `git`
 
 ## Compiling on Linux
 
@@ -14,7 +22,7 @@ Install the prerequisites:
 **Fedora/RHEL/CentOS based (bzip requires CRB repo enabled on RHEL/CentOS)**
 
 ```shell
-sudo dnf install git python3 gcc gcc-c++ libarchive-devel bzip2 xz clang lld
+sudo dnf install git python3 libarchive-devel bzip2 xz clang lld
 ```
 
 **Ubuntu/Debian based**
@@ -32,13 +40,13 @@ sudo pacman -Syu git python gcc libarchive bzip2 xz clang lld
 Then compile the toolchain:
 
 ```shell
-MAKEOBJDIRPREFIX=/tmp/obj python3 tools/build/make.py -j$(nproc) kernel-toolchain TARGET=amd64 TARGET_ARCH=amd64 --bootstrap-toolchain
+MAKEOBJDIRPREFIX=/tmp/obj python3 tools/build/make.py -j$(nproc) kernel-toolchain TARGET=amd64 TARGET_ARCH=amd64 --cross-bindir=/usr/bin --bootstrap-toolchain
 ```
 
 If the compilation fails because of OOM killer, change -j$(nproc) to eg. -j4:
 
 ```shell
-MAKEOBJDIRPREFIX=/tmp/obj python3 tools/build/make.py -j4 kernel-toolchain TARGET=amd64 TARGET_ARCH=amd64 --bootstrap-toolchain
+MAKEOBJDIRPREFIX=/tmp/obj python3 tools/build/make.py -j4 kernel-toolchain TARGET=amd64 TARGET_ARCH=amd64 --cross-bindir=/usr/bin --bootstrap-toolchain
 ```
 
 A successful toolchain compilation will return:
@@ -56,7 +64,7 @@ You can change amd64 for i386 too.
 And then compile the kernel (if you copied the compiled toolchain from /tmp/obj, make sure to put the correct directory after MAKEOBJDIRPREFIX)  (if the OOM killer stops the compilation, change -j$(nproc) to eg. -j4):
 
 ```shell
-MAKEOBJDIRPREFIX=/tmp/obj python3 tools/build/make.py -j$(nproc) buildkernel KERNCONF=PEBKERNEL TARGET=amd64 TARGET_ARCH=amd64 --bootstrap-toolchain
+MAKEOBJDIRPREFIX=/tmp/obj python3 tools/build/make.py -j$(nproc) buildkernel KERNCONF=PEBKERNEL TARGET=amd64 TARGET_ARCH=amd64 --cross-bindir=/usr/bin --bootstrap-toolchain
 ```
 
 After the compilation, you should see something like this:
