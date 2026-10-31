@@ -34,7 +34,7 @@ sudo apt install git python3 build-essential libarchive-dev libbz2-dev liblzma-d
 **Arch based**
 
 ```shell
-sudo pacman -Syu git python gcc libarchive bzip2 xz clang lld
+sudo pacman -Syu git python libarchive bzip2 xz clang lld
 ```
 
 Then compile the toolchain:
