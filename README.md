@@ -2,7 +2,10 @@
 
 Fork of FreeBSD 16 kernel
 
-Nothing to say for now.
+**Key differences**
+x64 kernel: built-in amdgpu support
+x32 kernel: built in tdfx and tdfxdrm support for Voodoo cards
+both kernels: pre-enabled IPSEC
 
 ## Compiling on Linux
 
