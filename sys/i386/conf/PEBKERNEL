@@ -18,7 +18,7 @@ options 	EXTERR_STRINGS		# Retain exterror(9) strings in the kernel
 options 	VIMAGE			# Subsystem virtualization, e.g. VNET
 options 	INET			# InterNETworking
 options 	INET6			# IPv6 communications protocols
-options 	IPSEC_SUPPORT		# Allow kldload of ipsec and tcpmd5
+options 	IPSEC
 options 	TCP_HHOOK		# hhook(9) framework for TCP
 options 	TCP_OFFLOAD		# TCP offload
 options 	SCTP_SUPPORT		# Allow kldload of SCTP
@@ -331,3 +331,9 @@ options 	HID_DEBUG		# enable debug msgs
 device		hid			# Generic HID support
 device		hidbus			# Generic HID Bus
 options 	IICHID_SAMPLING		# Workaround missing GPIO INTR support
+
+# gpu devices again (now older ones)
+device      tdfx            # voodoo and voodoo ii
+device      tdfxdrm         # voodoo iii and newer
+device      gpu             # generic gpu support
+device      drm             # direct rendering manager

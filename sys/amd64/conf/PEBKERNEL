@@ -16,8 +16,7 @@ options 	EXTERR_STRINGS		# Retain exterror(9) strings in the kernel
 options 	VIMAGE			# Subsystem virtualization, e.g. VNET
 options 	INET			# InterNETworking
 options 	INET6			# IPv6 communications protocols
-options 	IPSEC_SUPPORT		# Allow kldload of ipsec and tcpmd5
-options 	IPSEC_OFFLOAD		# Inline ipsec offload infra
+options     IPSEC
 options 	FIB_ALGO		# Modular fib lookups
 options 	TCP_OFFLOAD		# TCP offload
 options 	TCP_BLACKBOX		# Enhanced TCP event logging
@@ -391,3 +390,8 @@ options 	IICHID_SAMPLING		# Workaround missing GPIO INTR support
 # EFI devices
 device		efidev			# EFI pseudo-device
 device		efirtc			# EFI RTC
+
+# GPU devices that somehow assholes from FreeBSD forgot to add
+device      drm             # direct rendering manager
+device      gpu             # generic support
+device      amdgpu          # amd gpu support

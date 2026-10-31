@@ -49,9 +49,9 @@
 #		like the -V command
 #
 
-TYPE="FreeBSD"
-REVISION="16.0"
-BRANCH="CURRENT"
+TYPE="LandscapeOS"
+REVISION="Metal Mushroom"
+BRANCH="PEB-CANARY"
 if [ -n "${BRANCH_OVERRIDE}" ]; then
 	BRANCH=${BRANCH_OVERRIDE}
 fi
