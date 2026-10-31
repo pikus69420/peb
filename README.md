@@ -49,9 +49,15 @@ If the compilation fails because of OOM killer, change -j$(nproc) to eg. -j4:
 MAKEOBJDIRPREFIX=/tmp/obj python3 tools/build/make.py -j4 kernel-toolchain TARGET=amd64 TARGET_ARCH=amd64 --cross-bindir=/usr/bin --bootstrap-toolchain
 ```
 
-A successful toolchain compilation will return:
+A successful toolchain compilation will show this or return to the command prompt without any error:
 
-
+```
+--------------------------------------------------------------
+>>> Kernel toolchain for amd64 completed on [date]
+--------------------------------------------------------------
+>>> Kernel toolchain built in XXXX seconds, ncpu: X, make -jX
+--------------------------------------------------------------
+```
 
 You can change amd64 for i386 too.
 
@@ -61,13 +67,13 @@ And then compile the kernel (if you copied the compiled toolchain from /tmp/obj,
 MAKEOBJDIRPREFIX=/tmp/obj python3 tools/build/make.py -j$(nproc) buildkernel KERNCONF=PEBKERNEL TARGET=amd64 TARGET_ARCH=amd64 --cross-bindir=/usr/bin --bootstrap-toolchain
 ```
 
-After the compilation, you should see something like this or just return to the command prompt without any errors:
+After the compilation, you should see something like this:
 
 ```
 --------------------------------------------------------------
->>> Kernel build for PEBKERNEL completed on Fri Oct 30 21:36:51 CET 2026
+>>> Kernel build for PEBKERNEL completed on [date]
 --------------------------------------------------------------
->>> Kernel(s) PEBKERNEL built in 337 seconds, ncpu: 12, make -j12
+>>> Kernel(s) PEBKERNEL built in XXXX seconds, ncpu: X, make -jX
 --------------------------------------------------------------
 ```
 Compiled kernel will be in the same folder as the toolchain (eg. /tmp/obj/home/user/peb/amd64.amd64/sys/PEBKERNEL)
