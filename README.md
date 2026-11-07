@@ -1,3 +1,5 @@
+This version is discontinued as of now. I am working on rebasing Peb to FreeBSD 15.1.
+
 # Peb
 
 Fork of FreeBSD 16 kernel
